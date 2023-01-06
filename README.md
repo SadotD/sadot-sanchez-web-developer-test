@@ -1,10 +1,14 @@
-# Nuxt 3 Minimal Starter
+<!-- @format -->
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Sadot Sanchez - Web Developer Test
+
+## Description
+
+This projects is a test to apply for a junior web developer position. The project consists of a to-do list connected to Firestore from which the user can add, modify and delete todo items. The second part of the project is a simple carousel which has definitions for the values that the position css property can take.
 
 ## Setup
 
-Make sure to install the dependencies:
+Install the dependencies:
 
 ```bash
 # yarn

@@ -1,98 +1,103 @@
 <!-- @format -->
 
 <template>
-    <div class="flex flex-col items-center">
-        <h1 class="mb-6 text-3xl font-extrabold">
-            Front-end concepts - CSS Positions
-        </h1>
+    <div class="self-center">
+        <div class="flex flex-col items-center my-auto">
+            <h1 class="mb-6 text-3xl font-extrabold">
+                Front-end concepts - CSS Positions
+            </h1>
 
-        <!-- Make a carrousel, when it reaches the end it should show the beginning -->
-        <!-- and the next and previous cards blurred  -->
-        <!-- NOTE: Use tailwind classes  -->
-        <div class="flex justify-center items-center max-w-2xl mx-auto">
-            <div class="relative">
-                <div class="max-w-xl py-6 px-16 md:px-24 rounded-xl bg-white">
-                    <Transition>
-                        <h1
-                            class="text-2xl font-bold absolute inset-x-0 top-4 text-center"
-                            :key="carrouselCurrent.title"
-                        >
-                            {{ carrouselCurrent.title }}
-                        </h1>
-                    </Transition>
-                    <Transition name="slide">
-                        <div :key="carrouselCurrent.title">
-                            <p class="mt-8">
-                                <i>Description: </i>
-                                {{ carrouselCurrent.description }}
-                            </p>
-                            <p class="mt-4">
-                                <i>Uses: </i>
-                                {{ carrouselCurrent.uses }}
-                            </p>
-                        </div>
-                    </Transition>
-                </div>
-                <!-- Arrows for left and right positioned absolute -->
-                <div class="absolute inset-y-0 left-4 flex items-center">
-                    <button
-                        class="h-5/6 bg-teal-500 hover:bg-teal-700 text-white font-bold px-1 md:px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out"
-                        @click="carrouselIndex = carrouselPreviousIndex"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M15 19l-7-7 7-7"
-                            />
-                        </svg>
-                    </button>
-                </div>
-                <div class="absolute inset-y-0 right-4 flex items-center">
-                    <button
-                        class="h-5/6 bg-teal-500 hover:bg-teal-700 text-white font-bold px-1 md:px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out"
-                        @click="carrouselIndex = carrouselNextIndex"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <!-- Make a button group of all the carrousel -->
+            <!-- Make a carrousel, when it reaches the end it should show the beginning -->
+            <!-- and the next and previous cards blurred  -->
             <!-- NOTE: Use tailwind classes  -->
-        </div>
-        <div class="flex flex-row items-center gap-2 md:gap-4 mt-4">
-            <button
-                v-for="(carrousel, index) in carrouselData"
-                :key="carrousel.title"
-                class="text-white font-bold py-2 px-2 md:px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out text-xs"
-                :class="{
-                    'bg-teal-700': carrouselIndex === index,
-                    'bg-teal-500': carrouselIndex !== index,
-                }"
-                @click="carrouselIndex = index"
-            >
-                {{ carrousel.title }}
-            </button>
+            <div class="flex justify-center items-center max-w-7xl mx-auto">
+                <div class="relative">
+                    <div class="py-6 px-16 md:px-24 rounded-xl bg-white">
+                        <Transition>
+                            <h1
+                                class="text-2xl md:text-4xl font-bold absolute inset-x-0 top-4 text-center"
+                                :key="carrouselCurrent.title"
+                            >
+                                {{ carrouselCurrent.title }}
+                            </h1>
+                        </Transition>
+                        <Transition name="slide">
+                            <div
+                                :key="carrouselCurrent.title"
+                                class="md:text-2xl lg:text-3xl xl:text-4xl xl:mt-16"
+                            >
+                                <p class="mt-8">
+                                    <i>Description: </i>
+                                    {{ carrouselCurrent.description }}
+                                </p>
+                                <p class="mt-4">
+                                    <i>Uses: </i>
+                                    {{ carrouselCurrent.uses }}
+                                </p>
+                            </div>
+                        </Transition>
+                    </div>
+                    <!-- Arrows for left and right positioned absolute -->
+                    <div class="absolute inset-y-0 left-4 flex items-center">
+                        <button
+                            class="h-5/6 bg-teal-500 hover:bg-teal-700 text-white font-bold px-1 md:px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out"
+                            @click="carrouselIndex = carrouselPreviousIndex"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 19l-7-7 7-7"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="absolute inset-y-0 right-4 flex items-center">
+                        <button
+                            class="h-5/6 bg-teal-500 hover:bg-teal-700 text-white font-bold px-1 md:px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out"
+                            @click="carrouselIndex = carrouselNextIndex"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Make a button group of all the carrousel -->
+                <!-- NOTE: Use tailwind classes  -->
+            </div>
+            <div class="flex flex-row items-center gap-2 md:gap-4 mt-4">
+                <button
+                    v-for="(carrousel, index) in carrouselData"
+                    :key="carrousel.title"
+                    class="text-white font-bold py-2 px-2 md:px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out text-xs"
+                    :class="{
+                        'bg-teal-700': carrouselIndex === index,
+                        'bg-teal-500': carrouselIndex !== index,
+                    }"
+                    @click="carrouselIndex = index"
+                >
+                    {{ carrousel.title }}
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -211,10 +216,20 @@
 
     /* ensure leaving items are taken out of layout flow so that moving
     animations can be calculated correctly. */
-    .slide-leave-active {
-        position: absolute;
-        left: 6rem;
-        right: 6rem;
+    @media (max-width: 768px) {
+        .slide-leave-active {
+            position: absolute;
+            left: 4rem;
+            right: 4rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .slide-leave-active {
+            position: absolute;
+            left: 6rem;
+            right: 6rem;
+        }
     }
 
     /* When it enters overlap over the other one to not create a giant paragraph */

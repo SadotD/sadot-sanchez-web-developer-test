@@ -3,6 +3,7 @@
 <template>
     <div class="flex flex-col gap-4">
         <h1 class="text-lg md:text-2xl font-bold text-center">{{ status }}</h1>
+        <hr class="bg-stone-600 h-1 w-5/6 self-center" />
         <div v-if="todos?.length > 0" v-for="todo in todos" :key="todo.id">
             <div class="flex justify-center">
                 <div
@@ -12,6 +13,7 @@
                         <div class="font-bold text-md md:text-xl mb-1 md:mb-2">
                             {{ todo.title }}
                         </div>
+                        <hr class="mb-3" />
                         <!-- Divide between Status with Priority AND edit button -->
                         <div class="flex flex-col md:flex-row justify-between">
                             <div class="flex flex-col mb-2">

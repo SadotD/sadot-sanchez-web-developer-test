@@ -7,9 +7,10 @@
             <br />
             <i class="text-lg">Click the button above to add one</i>
         </div>
-        <div v-else class="flex flex-col">
+        <div v-else class="flex flex-col items-center justify-center">
+            <i class="text-lg mr-32">Filters:</i>
             <div
-                class="inline-flex rounded-md justify-center mb-2"
+                class="inline-flex rounded-md justify-center mb-2 relative"
                 role="group"
             >
                 <button
@@ -50,7 +51,7 @@
                 </button>
             </div>
             <div
-                class="flex justify-center gap-2 md:gap-10 min-w-full"
+                class="flex justify-center gap-2 md:gap-10 min-w-full mt-4"
                 v-if="showPending || showWorkingOnIt || showCompleted"
             >
                 <div v-if="showPending" class="w-1/3">
@@ -74,7 +75,7 @@
             </div>
             <div v-else class="text-center mt-12">
                 <i class="text-md"
-                    >No category selected, press any category to show its
+                    >No status selected, press any status button to show its
                     corresponding list</i
                 >
             </div>

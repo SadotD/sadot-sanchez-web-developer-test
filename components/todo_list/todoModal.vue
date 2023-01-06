@@ -26,7 +26,7 @@
                     Title
                 </label>
                 <input
-                    class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 hover:border-gray-400 leading-tight focus:outline-none focus:shadow-outline"
                     id="title"
                     type="text"
                     placeholder="Title"
@@ -43,7 +43,7 @@
                     Description
                 </label>
                 <textarea
-                    class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 hover:border-gray-400 leading-tight focus:outline-none focus:shadow-outline"
                     id="description"
                     placeholder="Description"
                     v-model="description"
@@ -62,7 +62,7 @@
                     <div class="relative">
                         <!-- Make it mobile responsive -->
                         <select
-                            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded-lg shadow leading-tight focus:outline-none focus:shadow-outline"
+                            class="block appearance-none w-full bg-white border text-gray-700 hover:border-gray-400 px-4 py-2 rounded-lg shadow leading-tight focus:outline-none focus:shadow-outline"
                             id="status"
                             v-model="status"
                         >
@@ -103,7 +103,7 @@
                         Priority
                     </label>
                     <input
-                        class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 hover:border-gray-400 leading-tight focus:outline-none focus:shadow-outline"
                         id="priority"
                         type="number"
                         placeholder="Priority"

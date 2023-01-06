@@ -12,6 +12,13 @@ export default defineNuxtConfig({
                     content: "Sadot Sanchez's | Web Developer Test",
                 },
             ],
+            link: [
+                // Comfortaa font
+                {
+                    rel: "stylesheet",
+                    href: "https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap",
+                },
+            ],
         },
     },
 });

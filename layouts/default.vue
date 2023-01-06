@@ -11,7 +11,7 @@
                     </h2>
                     <Transition>
                         <ul
-                            class="flex flex-col md:flex-row md:gap-10 justify-end items-center col-span-2 md:col-span-1"
+                            class="flex flex-row md:gap-10 justify-center items-center col-span-2 md:col-span-1 text-md gap-5"
                         >
                             <li><NuxtLink to="/">Home</NuxtLink></li>
                             <li>
@@ -26,7 +26,7 @@
                     </Transition>
                 </nav>
             </header>
-            <div class="container mx-auto p-4 flex-grow">
+            <div class="container mx-auto p-4 flex-grow flex justify-center">
                 <slot />
             </div>
             <footer
@@ -47,5 +47,12 @@
         color: #2dd4bf;
         font-weight: 600;
         border-bottom: 2px solid #2dd4bf;
+    }
+    body {
+        /* Use comfortaa font */
+        font-family: "Comfortaa", ui-sans-serif, system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol", "Noto Color Emoji";
     }
 </style>
