@@ -13,19 +13,7 @@
                 class="float-right text-gray-500 hover:text-gray-700"
                 @click="emit('close')"
             >
-                <svg
-                    class="fill-current h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        d="M18 6L6 18M6 6l12 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
+                &times;
             </button>
             <h2 class="text-2xl font-bold text-center mb-4">
                 {{ type === "add" ? "Add Todo" : "Edit Todo" }}
@@ -44,6 +32,7 @@
                     placeholder="Title"
                     v-model="title"
                     required
+                    @keyup.enter="handleSubmit"
                 />
             </div>
             <div class="mb-3">
@@ -119,15 +108,41 @@
                         type="number"
                         placeholder="Priority"
                         v-model="priority"
+                        @keyup.enter="handleSubmit"
                     />
                 </div>
                 <!-- Delete button for edit -->
 
                 <button
-                    class="mt-3 md:w-full bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="mt-3 md:w-full text-center bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit"
+                    :disabled="isLoading"
                 >
-                    {{ type === "add" ? "Add" : "Edit" }}
+                    <div v-if="isLoading">
+                        <svg
+                            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle
+                                class="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                stroke-width="4"
+                            ></circle>
+                            <path
+                                class="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8v8z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div v-else>
+                        {{ type === "add" ? "Add" : "Edit" }}
+                    </div>
                 </button>
                 <button
                     class="mt-3 md:w-1/2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -169,7 +184,10 @@
 
     const showDeleteModal = ref(false);
 
+    const isLoading = ref(false);
+
     const handleSubmit = async () => {
+        isLoading.value = true;
         if (type === "add") {
             await addTodo();
         } else {
@@ -220,6 +238,12 @@
                 console.log(error);
             });
     };
+
+    onMounted(() => {
+        document.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") handleSubmit();
+        });
+    });
 </script>
 
 <style scoped></style>

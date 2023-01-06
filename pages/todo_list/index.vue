@@ -2,13 +2,13 @@
 
 <template>
     <div>
-        <h1 class="mb-6 ml-10 text-5xl font-extrabold">Todo List</h1>
+        <h1 class="mb-6 ml-10 text-5xl font-extrabold">To-do List</h1>
         <div class="flex justify-center">
             <button
-                class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
+                class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline hover:scale-110 transition-all duration-500 ease-in-out"
                 @click="showModal = true"
             >
-                Add Todo
+                Add To-do
             </button>
         </div>
         <div>

@@ -2,8 +2,10 @@
 
 <template>
     <div class="justify-center mt-6">
-        <div v-if="todos.length === 0">
-            <p>No todos yet :(</p>
+        <div v-if="todos.length === 0" class="text-center text-xl">
+            <p>No to-dos yet :(</p>
+            <br />
+            <i class="text-lg">Click the button above to add one</i>
         </div>
         <div v-else class="flex flex-col">
             <div
@@ -47,7 +49,10 @@
                     Completed
                 </button>
             </div>
-            <div class="flex justify-center gap-2 md:gap-10 min-w-full">
+            <div
+                class="flex justify-center gap-2 md:gap-10 min-w-full"
+                v-if="showPending || showWorkingOnIt || showCompleted"
+            >
                 <div v-if="showPending" class="w-1/3">
                     <TodoListIndividualList
                         :todos="pendingTodos"
@@ -66,6 +71,12 @@
                         :status="'Completed'"
                     />
                 </div>
+            </div>
+            <div v-else class="text-center mt-12">
+                <i class="text-md"
+                    >No category selected, press any category to show its
+                    corresponding list</i
+                >
             </div>
         </div>
     </div>

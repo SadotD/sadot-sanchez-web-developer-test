@@ -3,7 +3,7 @@
 <template>
     <div class="flex flex-col gap-4">
         <h1 class="text-lg md:text-2xl font-bold text-center">{{ status }}</h1>
-        <div v-for="todo in todos" :key="todo.id">
+        <div v-if="todos?.length > 0" v-for="todo in todos" :key="todo.id">
             <div class="flex justify-center">
                 <div
                     class="max-w-sm rounded overflow-hidden shadow-lg bg-slate-50 w-full"
@@ -24,7 +24,7 @@
                             </div>
                             <div class="flex flex-col">
                                 <button
-                                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 md:py-2 px-2 md:px-4 rounded focus:outline-none focus:shadow-outline text-sm md:text-md"
+                                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 md:py-2 px-2 md:px-4 rounded focus:outline-none focus:shadow-outline text-sm md:text-md hover:scale-110 transition-all duration-500 ease-in-out"
                                     @click="showModal = true"
                                 >
                                     Edit
@@ -40,6 +40,11 @@
                 :type="'edit'"
                 :existing-todo="todo"
             />
+        </div>
+        <div v-else class="text-center">
+            <i class="text-sm md:text-xl">
+                No "{{ status.toLowerCase() }}" to-dos yet!
+            </i>
         </div>
     </div>
 </template>

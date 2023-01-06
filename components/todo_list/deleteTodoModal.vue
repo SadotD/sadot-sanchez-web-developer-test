@@ -50,7 +50,6 @@
                                         be undone.
                                     </p>
                                 </div>
-                                <!-- Button -->
                                 <div
                                     class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse"
                                 >
@@ -58,8 +57,31 @@
                                         type="button"
                                         class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                                         @click="handleDeleteTodo"
+                                        :disabled="isLoading"
                                     >
-                                        Delete
+                                        <div v-if="isLoading">
+                                            <svg
+                                                class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <circle
+                                                    class="opacity-25"
+                                                    cx="12"
+                                                    cy="12"
+                                                    r="10"
+                                                    stroke="currentColor"
+                                                    stroke-width="4"
+                                                ></circle>
+                                                <path
+                                                    class="opacity-75"
+                                                    fill="currentColor"
+                                                    d="M4 12a8 8 0 018-8v8z"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <div v-else>Delete</div>
                                     </button>
                                     <button
                                         type="button"
@@ -82,7 +104,10 @@
     const emit = defineEmits(["close"]);
     const { id } = defineProps<{ id?: string }>();
 
+    const isLoading = ref(false);
+
     const handleDeleteTodo = async () => {
+        isLoading.value = true;
         await $fetch("/api/todoitems/delete?collection=todoitems", {
             method: "DELETE",
             body: { id },
