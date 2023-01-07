@@ -6,10 +6,6 @@
             <h1 class="mb-6 text-3xl font-extrabold">
                 Front-end concepts - CSS Positions
             </h1>
-
-            <!-- Make a carrousel, when it reaches the end it should show the beginning -->
-            <!-- and the next and previous cards blurred  -->
-            <!-- NOTE: Use tailwind classes  -->
             <div class="flex justify-center items-center max-w-7xl mx-auto">
                 <div class="relative">
                     <div class="py-6 px-16 md:px-24 rounded-xl bg-white">

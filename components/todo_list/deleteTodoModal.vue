@@ -2,7 +2,6 @@
 
 <template>
     <div>
-        <!-- Make a confirmation modal to delete a todo item using tailwindcss -->
         <div
             class="fixed z-10 inset-0 overflow-y-auto"
             aria-labelledby="modal-title"

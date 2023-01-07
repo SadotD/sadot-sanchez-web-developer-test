@@ -14,7 +14,6 @@
                             {{ todo.title }}
                         </div>
                         <hr class="mb-3" />
-                        <!-- Divide between Status with Priority AND edit button -->
                         <div class="flex flex-col md:flex-row justify-between">
                             <div class="flex flex-col mb-2">
                                 <p class="text-gray-700 text-xs md:text-sm">
